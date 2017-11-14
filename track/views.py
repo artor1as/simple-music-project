@@ -1,3 +1,17 @@
-from django.shortcuts import render
+from rest_framework import generics, permissions
 
-# Create your views here.
+from track.models import Track
+from track.serializers import TrackCRUDSerializer
+
+
+class TrackList(generics.ListCreateAPIView):
+    queryset = Track.objects.all()
+    serializer_class = TrackCRUDSerializer
+    permission_classes = (permissions.IsAdminUser,)
+
+
+class TrackDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Track.objects.all()
+    serializer_class = TrackCRUDSerializer
+    permission_classes = (permissions.IsAdminUser,)
+

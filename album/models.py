@@ -14,3 +14,6 @@ class Album(models.Model):
 
     def __str__(self):
         return '{0}, {1}'.format(self.name, self.year)
+
+    class Meta:
+        db_table = 'album'

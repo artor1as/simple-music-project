@@ -12,3 +12,4 @@ class Discovery(models.Model):
 
     class Meta:
         ordering = ['order']
+        db_table = 'discovery'

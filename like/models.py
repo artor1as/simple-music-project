@@ -14,3 +14,4 @@ class Like(models.Model):
     class Meta:
         unique_together = ('user', 'track')
         verbose_name_plural = 'Likes'
+        db_table = 'like'
