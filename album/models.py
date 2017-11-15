@@ -10,6 +10,7 @@ class Album(models.Model):
     name = models.CharField(max_length=100)
     artist = models.ForeignKey(Artist)
     year = models.IntegerField('year',
+                               choices=YEAR_CHOICES,
                                default=datetime.now().year)
 
     def __str__(self):

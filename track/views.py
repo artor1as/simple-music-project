@@ -5,7 +5,8 @@ from track.serializers import TrackCRUDSerializer
 
 
 class TrackList(generics.ListCreateAPIView):
-    queryset = Track.objects.all()
+    queryset = Track.objects.prefetch_related(
+        'available_country').prefetch_related('artists')
     serializer_class = TrackCRUDSerializer
     permission_classes = (permissions.IsAdminUser,)
 
