@@ -12,7 +12,11 @@ class Track(models.Model):
     path = models.CharField(max_length=100, default='/home/music')
     available_country = models.ManyToManyField(
         Country,
+        default=Country.objects.all(),
     )
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        db_table = 'track'
