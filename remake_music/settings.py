@@ -67,7 +67,7 @@ REST_FRAMEWORK = {
     'DEFAULT_VERSION': 'v1',
 }
 
-ROOT_URLCONF = 'remake_music.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
@@ -86,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'remake_music.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database

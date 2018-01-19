@@ -4,7 +4,7 @@ from artist.models import Artist
 
 
 class Discovery(models.Model):
-    artist = models.ForeignKey(Artist)
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     order = models.PositiveIntegerField(unique=True)
 
     def __str__(self):

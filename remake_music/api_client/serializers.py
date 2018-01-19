@@ -1,11 +1,7 @@
-from django.contrib.auth.models import User
 from rest_framework import serializers
-from rest_framework.generics import get_object_or_404
-from rest_framework.reverse import reverse
 
 from album.models import Album
 from artist.models import Artist
-from country.models import Country
 from discovery.models import Discovery
 from like.models import Like
 from track.models import Track
