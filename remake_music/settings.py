@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'remake_music_database',
+        'NAME': 'remake_music_db',
         'USER': 'artor1as',
         'PASSWORD': 'qweasd123',
         'HOST': '',  # Set to empty string for localhost.

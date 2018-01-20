@@ -10,10 +10,7 @@ class Track(models.Model):
     artists = models.ManyToManyField(Artist)
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     path = models.CharField(max_length=100, default='/home/music')
-    available_country = models.ManyToManyField(
-        Country,
-        default=Country.objects.all(),
-    )
+    available_country = models.ManyToManyField(Country)
 
     def __str__(self):
         return self.name
