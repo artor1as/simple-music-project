@@ -37,12 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'track.apps.TrackConfig',
-    'artist.apps.ArtistConfig',
-    'country.apps.CountryConfig',
-    'album.apps.AlbumConfig',
-    'discovery.apps.DiscoveryConfig',
-    'like.apps.LikeConfig',
+    'remake_music.track.apps.TrackConfig',
+    'remake_music.artist.apps.ArtistConfig',
+    'remake_music.country.apps.CountryConfig',
+    'remake_music.album.apps.AlbumConfig',
+    'remake_music.discovery.apps.DiscoveryConfig',
+    'remake_music.like.apps.LikeConfig',
     'rest_framework',
     'debug_toolbar',
 ]
@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'remake_music.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'remake_music_database',
+        'NAME': 'remake_music_db',
         'USER': 'artor1as',
         'PASSWORD': 'qweasd123',
         'HOST': '',  # Set to empty string for localhost.

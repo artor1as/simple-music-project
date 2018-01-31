@@ -1,0 +1,5 @@
+Django==2.0.1
+djangorestframework==3.7.7
+django-debug-toolbar==1.9.1
+requests==2.18.4
+psycopg2==2.7.3.2
