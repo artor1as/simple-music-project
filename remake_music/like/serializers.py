@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from like.models import Like
+from remake_music.like.models import Like
 
 
 class LikeCRUDSerializer(serializers.ModelSerializer):

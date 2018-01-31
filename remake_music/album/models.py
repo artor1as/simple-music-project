@@ -1,7 +1,7 @@
 from datetime import date, datetime
 from django.db import models
 
-from artist.models import Artist
+from remake_music.artist.models import Artist
 
 YEAR_CHOICES = [(r, r) for r in range(1960, date.today().year+1)]
 

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from country.models import Country
+from remake_music.country.models import Country
 
 
 class CountryCRUDSerializer(serializers.ModelSerializer):

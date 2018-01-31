@@ -1,10 +1,10 @@
 from rest_framework import serializers
 
-from album.models import Album
-from artist.models import Artist
-from discovery.models import Discovery
-from like.models import Like
-from track.models import Track
+from remake_music.album.models import Album
+from remake_music.artist.models import Artist
+from remake_music.discovery.models import Discovery
+from remake_music.like.models import Like
+from remake_music.track.models import Track
 
 
 class AlbumInfoSerializer(serializers.ModelSerializer):

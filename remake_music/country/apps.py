@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class CountryConfig(AppConfig):
-    name = 'country'
+    name = 'remake_music.country'

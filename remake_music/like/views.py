@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 
-from like.models import Like
-from like.serializers import LikeCRUDSerializer
+from remake_music.like.models import Like
+from remake_music.like.serializers import LikeCRUDSerializer
 
 
 class LikeList(generics.ListCreateAPIView):

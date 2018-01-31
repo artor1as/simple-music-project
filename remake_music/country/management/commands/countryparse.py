@@ -1,7 +1,7 @@
 import requests
 from django.core.management.base import BaseCommand
 
-from country.models import Country
+from remake_music.country.models import Country
 
 
 class Command(BaseCommand):

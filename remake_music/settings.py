@@ -37,12 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'track.apps.TrackConfig',
-    'artist.apps.ArtistConfig',
-    'country.apps.CountryConfig',
-    'album.apps.AlbumConfig',
-    'discovery.apps.DiscoveryConfig',
-    'like.apps.LikeConfig',
+    'remake_music.track.apps.TrackConfig',
+    'remake_music.artist.apps.ArtistConfig',
+    'remake_music.country.apps.CountryConfig',
+    'remake_music.album.apps.AlbumConfig',
+    'remake_music.discovery.apps.DiscoveryConfig',
+    'remake_music.like.apps.LikeConfig',
     'rest_framework',
     'debug_toolbar',
 ]
@@ -67,7 +67,7 @@ REST_FRAMEWORK = {
     'DEFAULT_VERSION': 'v1',
 }
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'remake_music.urls'
 
 TEMPLATES = [
     {
@@ -86,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'wsgi.application'
+WSGI_APPLICATION = 'remake_music.wsgi.application'
 
 
 # Database

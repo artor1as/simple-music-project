@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class ArtistConfig(AppConfig):
-    name = 'artist'
+    name = 'remake_music.artist'

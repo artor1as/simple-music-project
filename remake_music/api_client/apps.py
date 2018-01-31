@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class ApiClientConfig(AppConfig):
-    name = 'api_client'
+    name = 'remake_music.api_client'

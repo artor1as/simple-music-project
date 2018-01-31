@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 
-from artist.models import Artist
-from artist.serializers import ArtistCRUDSerializer
+from remake_music.artist.models import Artist
+from remake_music.artist.serializers import ArtistCRUDSerializer
 
 
 class ArtistList(generics.ListCreateAPIView):

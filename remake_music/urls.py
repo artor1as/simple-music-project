@@ -18,12 +18,12 @@ from django.urls import path, include
 from django.contrib import admin
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from album import views as album_views
-from artist import views as artist_views
-from country import views as country_views
-from discovery import views as discovery_views
-from like import views as like_views
-from track import views as track_views
+from remake_music.album import views as album_views
+from remake_music.artist import views as artist_views
+from remake_music.country import views as country_views
+from remake_music.discovery import views as discovery_views
+from remake_music.like import views as like_views
+from remake_music.track import views as track_views
 
 
 crud_patterns = [

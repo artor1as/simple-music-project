@@ -1,6 +1,6 @@
 from django.db import models
 
-from artist.models import Artist
+from remake_music.artist.models import Artist
 
 
 class Discovery(models.Model):

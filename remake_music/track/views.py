@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 
-from track.models import Track
-from track.serializers import TrackCRUDSerializer
+from remake_music.track.models import Track
+from remake_music.track.serializers import TrackCRUDSerializer
 
 
 class TrackList(generics.ListCreateAPIView):

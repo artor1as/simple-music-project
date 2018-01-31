@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class AlbumConfig(AppConfig):
-    name = 'album'
+    name = 'remake_music.album'

@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from country.models import *
+from remake_music.country.models import *
 
 admin.site.register(Country)

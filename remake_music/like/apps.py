@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class LikeConfig(AppConfig):
-    name = 'like'
+    name = 'remake_music.like'

@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 
-from country.models import Country
-from country.serializers import CountryCRUDSerializer
+from remake_music.country.models import Country
+from remake_music.country.serializers import CountryCRUDSerializer
 
 
 class CountryList(generics.ListCreateAPIView):

@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 
-from discovery.models import Discovery
-from discovery.serializers import DiscoverCRUDSerializer
+from remake_music.discovery.models import Discovery
+from remake_music.discovery.serializers import DiscoverCRUDSerializer
 
 
 class DiscoveryList(generics.ListCreateAPIView):

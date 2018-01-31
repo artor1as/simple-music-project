@@ -1,8 +1,8 @@
 from django.db import models
 
-from country.models import Country
-from artist.models import Artist
-from album.models import Album
+from remake_music.country.models import Country
+from remake_music.artist.models import Artist
+from remake_music.album.models import Album
 
 
 class Track(models.Model):

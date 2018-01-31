@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from artist.models import Artist
+from remake_music.artist.models import Artist
 
 
 class ArtistCRUDSerializer(serializers.ModelSerializer):

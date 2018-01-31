@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from discovery.models import Discovery
+from remake_music.discovery.models import Discovery
 
 
 class DiscoverCRUDSerializer(serializers.ModelSerializer):

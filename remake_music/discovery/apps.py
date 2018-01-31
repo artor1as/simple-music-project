@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class DiscoveryConfig(AppConfig):
-    name = 'discovery'
+    name = 'remake_music.discovery'

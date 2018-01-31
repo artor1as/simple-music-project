@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 
-from album.models import Album
-from album.serializers import AlbumCRUDSerializer
+from remake_music.album.models import Album
+from remake_music.album.serializers import AlbumCRUDSerializer
 
 
 class AlbumList(generics.ListCreateAPIView):
