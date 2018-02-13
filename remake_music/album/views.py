@@ -14,4 +14,3 @@ class AlbumDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Album.objects.all()
     serializer_class = AlbumCRUDSerializer
     permission_classes = (permissions.IsAdminUser,)
-

@@ -24,6 +24,7 @@ from remake_music.country import views as country_views
 from remake_music.discovery import views as discovery_views
 from remake_music.like import views as like_views
 from remake_music.track import views as track_views
+from remake_music.api_client import views as client_api_views
 
 
 crud_patterns = [
@@ -43,6 +44,11 @@ crud_patterns = [
     path('api-auth/', include('rest_framework.urls')),
 ]
 
+client_api_patterns = [
+    path('track/', client_api_views.TrackAPIList.as_view()),
+    path('track/<int:pk>', client_api_views.TrackAPIDetail.as_view()),
+]
+
 version_patterns = [
 
 ]
@@ -50,6 +56,7 @@ version_patterns = [
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('crud/', include(crud_patterns)),
+    path('api/', include(client_api_patterns))
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -15,9 +15,9 @@ Album | Artist | Country | Discovery | Like | Track
 ------------ | ------------- | ------------ | ------------- | ------------ | ------------
 name | name | id | artist | track | name
 artist | bio | name | order | user | artists
-year | | | | | album
- | | | | | | path
- | | | | | | availiable_country
+year | - | - | - | - | album
+ -| - | - | - | - | path
+ -| - | - | - | - | availiable_country
 
 #### Project Tech Requires
 

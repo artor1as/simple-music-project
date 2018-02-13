@@ -35,3 +35,18 @@ class LikeInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
         fields = ('id', 'track', 'user')
+
+
+class TrackGeneralSerializer(TrackInfoSerializer):
+    album = AlbumInfoSerializer(read_only=True)
+    artists = ArtistInfoSerializer(read_only=True, many=True)
+    likes = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Track
+        fields = ('id', 'name', 'artists', 'album', 'likes')
+
+    def get_likes(self, obj):
+        return obj.likes.count()
+
+    #TODO end api serializer
