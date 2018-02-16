@@ -24,7 +24,7 @@ from remake_music.country import views as country_views
 from remake_music.discovery import views as discovery_views
 from remake_music.like import views as like_views
 from remake_music.track import views as track_views
-from remake_music.api_client import views as client_api_views
+from remake_music.api_client import urls as api_urls
 
 
 crud_patterns = [
@@ -41,13 +41,8 @@ crud_patterns = [
     path('like/<int:pk>/', like_views.LikeDetail.as_view()),
     path('tracks/', track_views.TrackList.as_view()),
     path('tracks/<int:pk>/', track_views.TrackDetail.as_view()),
-    path('api-auth/', include('rest_framework.urls')),
 ]
 
-client_api_patterns = [
-    path('track/', client_api_views.TrackAPIList.as_view()),
-    path('track/<int:pk>', client_api_views.TrackAPIDetail.as_view()),
-]
 
 version_patterns = [
 
@@ -55,11 +50,16 @@ version_patterns = [
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('crud/', include(crud_patterns)),
-    path('api/', include(client_api_patterns))
+    path('api/', include(api_urls)),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
+
+if settings.CRUD_MODE:
+    urlpatterns = [
+        path('crud/', include(crud_patterns)),
+    ] + urlpatterns
 
 if settings.DEBUG:
     import debug_toolbar

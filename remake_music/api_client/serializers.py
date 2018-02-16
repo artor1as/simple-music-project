@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 
 from remake_music.album.models import Album
@@ -35,6 +36,7 @@ class LikeInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
         fields = ('id', 'track', 'user')
+        read_only_fields = ('user',)
 
 
 class TrackGeneralSerializer(TrackInfoSerializer):
@@ -47,6 +49,34 @@ class TrackGeneralSerializer(TrackInfoSerializer):
         fields = ('id', 'name', 'artists', 'album', 'likes')
 
     def get_likes(self, obj):
-        return obj.likes.count()
+        like_count = Track.objects.filter(id=obj.id).count()
+        return like_count
 
-    #TODO end api serializer
+
+class UserSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(read_only=True)
+    password = serializers.CharField(write_only=True, allow_blank=True)
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'password', 'first_name',
+                  'last_name')
+
+    def create(self, validated_data):
+        user = super().create(validated_data)
+        user.set_password(validated_data['password'])
+        user.save()
+        return user
+
+    def update(self, instance, validated_data):
+        for attr, value in validated_data.items():
+            if attr == 'username':
+                continue
+            if attr == 'password' and not value or len(value) <= 8:
+                continue
+            else:
+                setattr(instance, attr, value)
+        instance.save()
+        return instance
+
+    # TODO end api serializer
