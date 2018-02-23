@@ -11,7 +11,7 @@ from remake_music.track.models import Track
 class AlbumInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Album
-        fields = ('id', 'name')
+        fields = ('id', 'name', 'year')
 
 
 class TrackInfoSerializer(serializers.ModelSerializer):
@@ -24,6 +24,32 @@ class ArtistInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Artist
         fields = ('id', 'name')
+
+
+class ArtistGeneralSerializer(ArtistInfoSerializer):
+    albums = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Artist
+        fields = ('id', 'name', 'albums')
+
+    def get_albums(self, obj):
+        album_list = Album.objects.filter(artist=obj.id).values()
+        return album_list
+
+
+class AlbumGeneralSerializer(AlbumInfoSerializer):
+    tracks = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Album
+        fields = ('id', 'name', 'year', 'tracks')
+
+    def get_tracks(self, obj):
+        track_list = Track.objects.filter(album=obj.id).values('id',
+                                                               'name',
+                                                               'path')
+        return track_list
 
 
 class DiscoveryInfoSerializer(serializers.ModelSerializer):
@@ -54,13 +80,12 @@ class TrackGeneralSerializer(TrackInfoSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    username = serializers.CharField(read_only=True)
     password = serializers.CharField(write_only=True, allow_blank=True)
 
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'password', 'first_name',
-                  'last_name')
+                  'last_name', 'is_staff', 'is_superuser', 'date_joined')
 
     def create(self, validated_data):
         user = super().create(validated_data)
@@ -78,5 +103,3 @@ class UserSerializer(serializers.ModelSerializer):
                 setattr(instance, attr, value)
         instance.save()
         return instance
-
-    # TODO end api serializer
