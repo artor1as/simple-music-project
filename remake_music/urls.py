@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf import settings
 from django.urls import path, include
 from django.contrib import admin
-from rest_framework.urlpatterns import format_suffix_patterns
 
 from remake_music.album import views as album_views
 from remake_music.artist import views as artist_views
@@ -53,8 +52,6 @@ urlpatterns = [
     path('api/', include(api_urls)),
     path('api-auth/', include('rest_framework.urls')),
 ]
-
-urlpatterns = format_suffix_patterns(urlpatterns)
 
 if settings.CRUD_MODE:
     urlpatterns = [
