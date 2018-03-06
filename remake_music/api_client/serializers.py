@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from rest_framework import serializers
+from rest_framework import serializers, validators
 
 from remake_music.album.models import Album
 from remake_music.artist.models import Artist
@@ -80,12 +80,12 @@ class TrackGeneralSerializer(TrackInfoSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, allow_blank=True)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password', 'first_name',
-                  'last_name', 'is_staff', 'is_superuser', 'date_joined')
+        fields = ('id', 'username', 'email', 'first_name',
+                  'last_name', 'date_joined')
+        read_only_fields = ('username', 'date_joined')
 
     def create(self, validated_data):
         user = super().create(validated_data)
@@ -93,13 +93,20 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
-    def update(self, instance, validated_data):
-        for attr, value in validated_data.items():
-            if attr == 'username':
-                continue
-            if attr == 'password' and not value or len(value) <= 8:
-                continue
-            else:
-                setattr(instance, attr, value)
-        instance.save()
-        return instance
+
+class PasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
+
+
+class SignupSerializer(serializers.Serializer):
+    username = serializers.CharField(
+        required=True,
+        validators=[validators.UniqueValidator(queryset=User.objects.all())]
+    )
+    email = serializers.EmailField(
+        required=True,
+        validators=[validators.UniqueValidator(queryset=User.objects.all())]
+    )
+    password = serializers.CharField(min_length=8, required=True)
+    password_confirmation = serializers.CharField(min_length=8, required=True)

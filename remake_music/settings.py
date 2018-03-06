@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'remake_music.album.apps.AlbumConfig',
+    'remake_music.api_client.apps.ApiClientConfig',
     'remake_music.artist.apps.ArtistConfig',
     'remake_music.base.apps.BaseConfig',
     'remake_music.country.apps.CountryConfig',
