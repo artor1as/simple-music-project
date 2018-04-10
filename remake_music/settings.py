@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'remake_music.track.apps.TrackConfig',
-    'remake_music.artist.apps.ArtistConfig',
-    'remake_music.country.apps.CountryConfig',
     'remake_music.album.apps.AlbumConfig',
+    'remake_music.api_client.apps.ApiClientConfig',
+    'remake_music.artist.apps.ArtistConfig',
+    'remake_music.base.apps.BaseConfig',
+    'remake_music.country.apps.CountryConfig',
     'remake_music.discovery.apps.DiscoveryConfig',
     'remake_music.like.apps.LikeConfig',
+    'remake_music.track.apps.TrackConfig',
     'rest_framework',
     'debug_toolbar',
 ]
@@ -141,3 +143,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRUD_MODE = True
